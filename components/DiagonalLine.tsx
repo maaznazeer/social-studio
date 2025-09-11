@@ -9,7 +9,6 @@ interface DiagonalLineProps {
   
   const DiagonalLine = ({ 
     className = "", 
-    height = "100px",
     angle = 90,
     fullWidth = false,  
     width = "100%",
