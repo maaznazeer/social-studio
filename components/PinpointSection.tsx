@@ -67,16 +67,16 @@ const PinpointSection = ({
     >
       <div className={`flex items-start gap-6 lg:gap-8 ${position === "right" ? "justify-end text-right" : "justify-start"}`}>
         {/* Number */}
-        <div className={`font-satoshi text-sm text-text-secondary min-w-[2rem] flex-shrink-0 ${position === "right" ? "order-2" : ""}`}>
+        <div className={`font-satoshi text-[10px] text-text-secondary min-w-[2rem] flex-shrink-0 ${position === "right" ? "order-2" : ""}`}>
           {number}.
         </div>
         
         {/* Content */}
         <div className={`flex-1 ${position === "right" ? "order-1" : ""}`}>
-          <h3 className="font-satoshi text-lg lg:text-xl font-medium text-primary mb-3 lg:mb-4 tracking-wide">
+          <h3 className="font-satoshi text-[10px] font-medium text-primary mb-3 lg:mb-4 tracking-wide">
             {title}
           </h3>
-          <p className="font-satoshi text-sm lg:text-base text-text-secondary leading-relaxed lg:leading-loose">
+          <p className="font-satoshi text-[10px] text-text-secondary leading-relaxed lg:leading-loose">
             {description}
           </p>
         </div>

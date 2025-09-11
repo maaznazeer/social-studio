@@ -71,7 +71,7 @@ const LandingPage = () => {
           >
             {/* Main text with subtle gradient */}
             {/* <motion.h1 
-              className="font-satoshi text-4xl md:text-6xl lg:text-7xl font-bold tracking-wider relative"
+              className="font-satoshi text-[10px] font-bold tracking-wider relative"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -100,7 +100,7 @@ const LandingPage = () => {
 
             {/* STUDIO with elegant reveal */}
             {/* <motion.h2 
-              className="font-satoshi text-2xl md:text-3xl lg:text-4xl font-medium text-text-secondary tracking-widest mt-3"
+              className="font-satoshi text-[10px] font-medium text-text-secondary tracking-widest mt-3"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
