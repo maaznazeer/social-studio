@@ -20,52 +20,46 @@ const LandingPage = () => {
       title: "SOCIAL-LIGHT STUDIO.",
       description: "is a multidimensional power-through-home giving new life to ancient structures. Rooted in black and indigenous visions. Convergence of legacy, future, all lost with time; anticipating reinventence.",
       position: "right" as const
-    },
-    {
-      number: 3,
-      title: "About Sol.",
-      description: "I am equal parts thinker, feeler, doer. Made of still waters and fiery drumming. I dance to shape the air. I move mountains when in mission.",
-      position: "left" as const
-    },
-    {
-      number: 4,
-      title: "take note: please be advised,",
-      description: "at the moment, I am not actively engaging new ideas. Though if interested in external thoughts, feedback, collaboration or adventure by a listening heart and mind, send a brief intro. If it inspires action from me, you will hear from me. Anything offered will be few of cost. For an open flow of ideas, I encourage mutual folks. As such, please keep it light.",
-      position: "right" as const
     }
   ];
 
   return (
     <div className="min-h-screen bg-background">
       {/* Header with Clock */}
-      <motion.header 
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-line"
-      >
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <DynamicClock />
-          <div className="flex items-center gap-4">
-            <div className="font-mono text-xs text-text-muted">
-              more me: sol@social-light.studio
+      <motion.header
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          // className="fixed top-0 left-0 right-0 z-50  backdrop-blur-sm border-b border-line"
+        >
+          <div className="container mx-auto px-6 py-4 flex items-center">
+          
+            <div className="flex-1" />
+
+      
+            <div className="flex-1 flex justify-center md:justify-center justify-start">
+              <DynamicClock />
             </div>
-            <ThemeToggle />
+
+      
+            <div className="flex-1 flex justify-end">
+              <ThemeToggle />
+            </div>
           </div>
-        </div>
-      </motion.header>
+        </motion.header>
+
 
       {/* Main Content */}
       <main className="relative pt-20">
         {/* Hero Section */}
-        <motion.section 
+        {/* <motion.section 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
           className="min-h-[50vh] flex items-center justify-center relative"
-        >
+        > */}
           {/* Main Logo */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ 
@@ -76,8 +70,8 @@ const LandingPage = () => {
             className="text-center z-10 relative"
           >
             {/* Main text with subtle gradient */}
-            <motion.h1 
-              className="font-mono text-4xl md:text-6xl lg:text-7xl font-bold tracking-wider relative"
+            {/* <motion.h1 
+              className="font-satoshi text-4xl md:text-6xl lg:text-7xl font-bold tracking-wider relative"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -102,20 +96,20 @@ const LandingPage = () => {
               >
                 SOCIAL-LIGHT.
               </motion.span>
-            </motion.h1>
+            </motion.h1> */}
 
             {/* STUDIO with elegant reveal */}
-            <motion.h2 
-              className="font-mono text-2xl md:text-3xl lg:text-4xl font-medium text-text-secondary tracking-widest mt-3"
+            {/* <motion.h2 
+              className="font-satoshi text-2xl md:text-3xl lg:text-4xl font-medium text-text-secondary tracking-widest mt-3"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
               STUDIO.
-            </motion.h2>
+            </motion.h2> */}
             
             {/* Elegant animated underline */}
-            <motion.div
+            {/* <motion.div
               className="relative mx-auto mt-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -130,7 +124,7 @@ const LandingPage = () => {
             </motion.div>
 
             {/* Subtle floating elements */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {/* <div className="absolute inset-0 pointer-events-none overflow-hidden">
               {[
                 { x: -150, y: -50, delay: 2.5 },
                 { x: 150, y: -30, delay: 3.0 },
@@ -160,37 +154,18 @@ const LandingPage = () => {
                 />
               ))}
             </div>
-          </motion.div>
+          {/* </motion.div> */} 
 
-          {/* Diagonal lines for visual interest */}
-          <DiagonalLine 
-            className="left-1/4 top-20"
-            height="200px"
-            angle={35}
-          />
-          <DiagonalLine 
-            className="right-1/3 top-40"
-            height="150px"
-            angle={-25}
-          />
-        </motion.section>
+   
+        {/* </motion.section> */} 
 
         {/* Pinpoint Sections - Diagonal layout with equal vertical spacing */}
-        <div className="container mx-auto px-6 py-20">
+        <div className="container mx-auto px-6 py-20 relative">
           {sections.map((section, index) => (
             <div 
               key={section.number} 
               className="relative h-[25vh] min-h-[300px] flex items-center"
             >
-              {/* Add subtle diagonal lines between sections */}
-              {index < sections.length - 1 && (
-                <DiagonalLine 
-                  className={`${section.position === "left" ? "right-1/4" : "left-1/4"} bottom-[-4rem]`}
-                  height="120px"
-                  angle={section.position === "left" ? 25 : -25}
-                />
-              )}
-              
               <div className={`w-full ${section.position === "left" ? "text-left" : "text-right"}`}>
                 <div className={`${section.position === "left" ? "ml-0 mr-auto" : "ml-auto mr-0"} max-w-md`}>
                   <PinpointSection
@@ -203,22 +178,30 @@ const LandingPage = () => {
               </div>
             </div>
           ))}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center pt-30"
+          >
+            <h2 className="font-bold text-lg text-text-secondary tracking-wide">
+             SOCIAL-LIGHT STUDIO.
+            </h2>
+          </motion.div>
+          {/* Diagonal line connecting sections 1 and 2 */}
+          <DiagonalLine 
+            className="absolute left-1/2 h-px"
+            fullWidth
+            angle={135}
+            width="900px"
+            style={{
+              top: 'calc(25vh + 150px)', 
+              transform: 'translateX(-50%) rotate(135deg)'
+            }}
+          />
         </div>
 
-        {/* Studio Info Section */}
-        <motion.section 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="py-20 border-t border-line mt-20"
-        >
-          <div className="container mx-auto px-6 text-center">
-            <p className="font-mono text-sm text-text-muted">
-              A multidimensional power-through-home giving new life to ancient structures
-            </p>
-          </div>
-        </motion.section>
+   
       </main>
 
       {/* Footer */}

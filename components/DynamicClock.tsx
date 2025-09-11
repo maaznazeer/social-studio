@@ -40,7 +40,7 @@ const DynamicClock = ({
   }, [timezone]);
 
   return (
-    <div className={`font-mono text-sm tracking-wider ${className}`}>
+    <div className={`font-satoshi text-sm tracking-wider whitespace-nowrap ${className}`}>
       <span className="text-primary font-medium">{city}</span>
       <span className="mx-2 text-text-muted">·</span>
       <span className="text-text-secondary">{currentTime}</span>
