@@ -3,16 +3,12 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 interface PinpointSectionProps {
-  number: number;
-  title: string;
   description: string;
   position: "left" | "right";
   className?: string;
 }
 
 const PinpointSection = ({
-  number,
-  title,
   description,
   position,
   className = ""
@@ -65,19 +61,33 @@ const PinpointSection = ({
       variants={slideVariant}
       className={`relative ${className}`}
     >
-      <div className={`flex items-start gap-6 lg:gap-8 ${position === "right" ? "justify-end text-right" : "justify-start"}`}>
+      <div className={`flex items-start gap-6 lg:gap-8 ${position === "right" ? "justify-start text-left" : "justify-start"} mb-8 md:mb-0`}>
         {/* Number */}
-        <div className={`font-satoshi text-[10px] text-text-secondary min-w-[2rem] flex-shrink-0 ${position === "right" ? "order-2" : ""}`}>
+        {/* <div className={`font-satoshi text-[10px] text-text-secondary min-w-[2rem] flex-shrink-0`}>
           {number}.
-        </div>
+        </div> */}
         
         {/* Content */}
-        <div className={`flex-1 ${position === "right" ? "order-1" : ""}`}>
-          <h3 className="font-satoshi text-[10px] font-medium text-primary mb-3 lg:mb-4 tracking-wide">
-            {title}
-          </h3>
-          <p className="font-satoshi text-[10px] text-text-secondary leading-relaxed lg:leading-loose">
-            {description}
+        <div className={`flex-1 max-w-[280px] md:max-w-none`}>
+          <p className="font-satoshi text-[10px] text-text-secondary leading-relaxed lg:leading-loose break-words hyphens-auto">
+            {description.split('**').map((part, index) => 
+              index % 2 === 1 ? (
+                <strong key={index} className="font-bold">{part}</strong>
+              ) : (
+                part.split('\n').map((line, lineIndex) => (
+                  <span key={lineIndex}>
+                    {line.split('*').map((italicPart, italicIndex) => 
+                      italicIndex % 2 === 1 ? (
+                        <em key={italicIndex} className="italic">{italicPart}</em>
+                      ) : (
+                        italicPart
+                      )
+                    )}
+                    {lineIndex < part.split('\n').length - 1 && <br />}
+                  </span>
+                ))
+              )
+            )}
           </p>
         </div>
       </div>
