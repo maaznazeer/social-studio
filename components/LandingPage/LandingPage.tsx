@@ -10,6 +10,7 @@ import { ThemeToggle } from "../theme-toggle";
 
 const LandingPage = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [screenSize, setScreenSize] = useState<'mobile' | 'lg' | 'xl' | '2xl'>('mobile');
 
   const sections = [
     {
@@ -24,14 +25,35 @@ const LandingPage = () => {
     }
   ];
 
-  // Scroll animation effect
+  // Scroll animation effect and screen size detection
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
 
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 1024) { // lg breakpoint
+        setScreenSize('mobile');
+      } else if (width < 1280) { // xl breakpoint
+        setScreenSize('lg');
+      } else if (width < 1536) { // 2xl breakpoint
+        setScreenSize('xl');
+      } else {
+        setScreenSize('2xl');
+      }
+    };
+
+    // Set initial screen size
+    handleResize();
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
@@ -62,9 +84,9 @@ const LandingPage = () => {
 
       {/* Main Content */}
       <main 
-        className="relative pt-20 z-10 bg-white transition-transform duration-300 ease-out min-h-[120vh] ease-in-out"
+        className="relative pt-20 z-10 bg-white transition-transform duration-300 ease-out min-h-[100vh] xl:min-h-[100vh] ease-in-out"
         style={{
-          transform: `translateY(${-scrollY * 2.8}px)`,
+          transform: `translateY(${-scrollY * (screenSize === 'mobile' ? 13 : screenSize === 'lg' ? 2.5 : screenSize === 'xl' ? 2.5 : 9)}px)`,
         }}
       >
        
@@ -116,7 +138,7 @@ const LandingPage = () => {
             }}
           />
         </div>
-        <div className=" mt-18 w-[80%] h-px bg-black mx-auto"></div>
+        <div className="w-[80%] h-px bg-black mx-auto"></div>
       </main>
 
       {/* Footer */}
