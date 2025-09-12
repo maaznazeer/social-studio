@@ -7,12 +7,14 @@ interface DynamicClockProps {
   city?: string;
   timezone?: string;
   className?: string;
+  showSeconds?: boolean;
 }
 
 const DynamicClock = ({ 
   city = "NEW YORK CITY", 
   timezone = "America/New_York",
-  className = ""
+  className = "",
+  showSeconds = false
 }: DynamicClockProps) => {
   const [currentTime, setCurrentTime] = useState<string>("");
 
@@ -21,11 +23,13 @@ const DynamicClock = ({
       try {
         const now = new Date();
         const zonedTime = toZonedTime(now, timezone);
-        const formattedTime = format(zonedTime, "HH:mm");
+        const timeFormat = showSeconds ? "HH:mm:ss" : "HH:mm";
+        const formattedTime = format(zonedTime, timeFormat);
         setCurrentTime(formattedTime);
       } catch (error) {
         // Fallback to local time if timezone fails
-        const formattedTime = format(new Date(), "HH:mm");
+        const timeFormat = showSeconds ? "HH:mm:ss" : "HH:mm";
+        const formattedTime = format(new Date(), timeFormat);
         setCurrentTime(formattedTime);
       }
     };
@@ -33,11 +37,11 @@ const DynamicClock = ({
     // Update immediately
     updateTime();
     
-    // Update every minute
-    const interval = setInterval(updateTime, 60000);
+    // Update every second for accurate timekeeping
+    const interval = setInterval(updateTime, 1000);
     
     return () => clearInterval(interval);
-  }, [timezone]);
+  }, [timezone, showSeconds]);
 
   return (
     <div className={`font-satoshi text-[10px] tracking-wider whitespace-nowrap ${className}`}>

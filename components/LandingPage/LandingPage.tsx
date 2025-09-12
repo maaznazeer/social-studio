@@ -5,7 +5,7 @@ import DynamicClock from "./DynamicClock";
 import PinpointSection from "./PinpointSection";
 import DiagonalLine from "./DiagonalLine";
 import SocialFooter from "./SocialFooter";
-import { ThemeToggle } from "./theme-toggle";
+import { ThemeToggle } from "../theme-toggle";
 
 const LandingPage = () => {
   const sections = [

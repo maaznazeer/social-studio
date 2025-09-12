@@ -66,7 +66,7 @@ interface SocialLink {
           <div className="w-full overflow-hidden">
             <div className="overflow-x-auto scrollbar-hide text-center">
               <div className="font-satoshi text-[10px] text-text-muted whitespace-nowrap inline-block min-w-max ">
-                All rights reserved. <Link target="_blank" href="https://docs.google.com/document/d/1ZMdYltBytGUquybPd5ycGQK7GhQOyDX4O2FqA0loioE/edit?usp=sharing" className="text-text-muted">privacy policy</Link>. <Link target="_blank" href="https://docs.google.com/document/d/1ZMdYltBytGUquybPd5ycGQK7GhQOyDX4O2FqA0loioE/edit?usp=sharing" className="text-text-muted">terms of use</Link>. <Link target="_blank" href="https://docs.google.com/document/d/1ZMdYltBytGUquybPd5ycGQK7GhQOyDX4O2FqA0loioE/edit?usp=sharing" className="text-text-muted">cookies policy</Link>.
+                All rights reserved. <Link target="_blank" href="/terms" className="text-text-muted">privacy policy</Link>. <Link href="/terms" className="text-text-muted hover:text-primary transition-colors duration-300">terms of service</Link>. <Link target="_blank" href="/terms" className="text-text-muted">cookies policy</Link>.
               </div>
             </div>
           </div>
@@ -74,5 +74,5 @@ interface SocialLink {
       </footer>
     );
   };
-  
+    
   export default SocialFooter;
