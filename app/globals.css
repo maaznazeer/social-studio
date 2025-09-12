@@ -224,6 +224,10 @@
 
 /* ✅ Base styles */
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     @apply bg-background text-foreground;
     font-family: 'Satoshi-Variable', 'Satoshi-Regular', 'Satoshi-Medium', 'Satoshi-Bold', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

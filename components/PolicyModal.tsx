@@ -74,12 +74,12 @@ const PolicyModal = ({ isOpen, onClose, type }: PolicyModalProps) => {
             <p className="text-sm text-muted-foreground mb-6">
               <strong>Effective Date:</strong> September 9, 2025
             </p>
-            <p className="mb-4">
+            <p className="mb-4 text-sm">
               For questions, thoughts, or collaboration inquiries, please reach out: 
               <br />
               <strong>Email:</strong> Sol@social-light.studio
             </p>
-            <p className="mb-6">
+            <p className="mb-6 text-sm">
               Welcome to SOCIAL-LIGHT. STUDIO. ("we," "our," "us"), owned and operated by SOCIAL-LIGHT. STUDIO. LLC, a New York Limited Liability Company. This space exists to share creative work and invite the possibility of collaboration. By engaging with our site, you agree to these Privacy Terms and terms described in our Cookies Policy and Terms of Service.
             </p>
             <div className="space-y-6 text-sm">
@@ -151,16 +151,16 @@ const PolicyModal = ({ isOpen, onClose, type }: PolicyModalProps) => {
             </p>
             <div className="mb-4">
               <h2 className="text-base font-semibold mb-2">CONTACT</h2>
-              <p>
+              <p className="text-sm">
                 For questions, thoughts, or collaboration inquiries, please reach out:
                 <br />
                 <strong>Email:</strong> Sol@social-light.studio
               </p>
             </div>
-            <p className="mb-6">
+            <p className="mb-6 text-sm">
               Welcome to SOCIAL-LIGHT. STUDIO. ("we," "our," "us"), owned and operated by SOCIAL-LIGHT. STUDIO. LLC, a New York Limited Liability Company. This space exists to share creative work and invite the possibility of collaboration. By engaging with our site, you agree to these Cookies Terms and terms described in our Privacy Policy and Terms of Service.
             </p>
-            <p className="mb-6">
+            <p className="mb-6 text-sm">
               Like most websites, SOCIAL-LIGHT. STUDIO. uses cookies — small text files stored on your device — to help the site run smoothly and to understand how visitors engage with the work shared here.
             </p>
             <div className="space-y-6 text-sm">
@@ -204,7 +204,7 @@ const PolicyModal = ({ isOpen, onClose, type }: PolicyModalProps) => {
                 <strong>Email:</strong> Sol@social-light.studio
               </p>
             </div>
-            <p className="mb-6">
+            <p className="mb-6 text-sm">
               Welcome to SOCIAL-LIGHT. STUDIO. ("we," "our," "us"), owned and operated by SOCIAL-LIGHT. STUDIO. LLC, a New York Limited Liability Company. This space exists to share creative work and invite the possibility of collaboration. By engaging with our site, you agree to these Terms of Service and terms described in our Privacy Policy and Cookies Policy.
             </p>
             <div className="space-y-6 text-sm">
@@ -278,7 +278,7 @@ const PolicyModal = ({ isOpen, onClose, type }: PolicyModalProps) => {
       
       {/* Modal */}
       <div 
-        className={`absolute bottom-0 left-0 right-0 bg-white text-black border-t border-border rounded-t-2xl shadow-2xl transform transition-all duration-1200 ease-in-out ${
+        className={`absolute bottom-0 left-0 right-0 bg-white text-black  rounded-t-2xl shadow-2xl transform transition-all duration-1200 ease-in-out ${
           isAnimating ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
         }`}
         style={{ height: '50vh' }}

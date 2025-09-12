@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PolicyModal from "../PolicyModal";
 
 interface SocialLink {
@@ -23,6 +23,9 @@ interface SocialLink {
       type: null,
     });
 
+    const [scrollY, setScrollY] = useState(0);
+    const [isFooterVisible, setIsFooterVisible] = useState(false);
+
     const openModal = (type: "privacy" | "terms" | "cookies") => {
       setModalState({ isOpen: true, type });
     };
@@ -30,10 +33,38 @@ interface SocialLink {
     const closeModal = () => {
       setModalState({ isOpen: false, type: null });
     };
+
+    // Scroll animation effect
+    useEffect(() => {
+      const handleScroll = () => {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        setScrollY(scrollPosition);
+        
+        // Start revealing footer when user scrolls 40% of the page
+        const revealPoint = documentHeight * 0.7;
+        
+        if (scrollPosition + windowHeight >= revealPoint) {
+          setIsFooterVisible(true);
+        } else {
+          setIsFooterVisible(false);
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
     return (
       <>
+      <div className=""></div>
         <footer 
-          className="py-12 border-t border-line relative "
+          className={`py-12  fixed bottom-0 left-0 right-0 transition-all duration-1000 ease-out z-0 ${
+            isFooterVisible 
+              ? 'translate-y-0 opacity-100' 
+              : 'translate-y-full opacity-0'
+          }`}
           style={{
             backgroundImage: 'url(/Footer-BG.png)',
             backgroundSize: 'cover',
@@ -41,7 +72,8 @@ interface SocialLink {
             backgroundRepeat: 'no-repeat'
           }}
         >
-          <div className="container mx-auto px-8 lg:px-12 max-w-7xl relative z-10 mt-[150px]">
+          {/* mx-auto px-8 lg:px-12 max-w-7xl relative z-10 mt-[150px] */}
+          <div className="container mx-auto px-8 lg:px-12 max-w-7xl relative z-10">
             {/* Section 3 - About Sol */}
             <div className="mb-8">
             

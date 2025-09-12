@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import DynamicClock from "./DynamicClock";
 import PinpointSection from "./PinpointSection";
 import DiagonalLine from "./DiagonalLine";
@@ -8,6 +9,8 @@ import SocialFooter from "./SocialFooter";
 import { ThemeToggle } from "../theme-toggle";
 
 const LandingPage = () => {
+  const [scrollY, setScrollY] = useState(0);
+
   const sections = [
     {
 
@@ -21,6 +24,16 @@ const LandingPage = () => {
     }
   ];
 
+  // Scroll animation effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header with Clock */}
@@ -32,26 +45,31 @@ const LandingPage = () => {
         >
           <div className="container mx-auto px-6 py-4 flex items-center">
           
-            <div className="flex-1" />
+            {/* <div className="flex-1" /> */}
 
       
-            <div className="flex-1 flex justify-center md:justify-center justify-start">
+            <div className="flex-1 flex justify-center md:justify-center">
               <DynamicClock />
             </div>
 
       
-            <div className="flex-1 flex justify-end">
+            {/* <div className="flex-1 flex justify-end">
               <ThemeToggle />
-            </div>
+            </div> */}
           </div>
         </motion.header>
 
 
       {/* Main Content */}
-      <main className="relative pt-20">
+      <main 
+        className="relative pt-20 z-10 bg-white transition-transform duration-300 ease-out min-h-[120vh] ease-in-out"
+        style={{
+          transform: `translateY(${-scrollY * 2.8}px)`,
+        }}
+      >
        
         {/* Pinpoint Sections - Diagonal layout with equal vertical spacing */}
-        <div className="container mx-auto px-10 md:px-0 lg:px-17 md:px-6 py-10 relative">
+        <div className="container mx-auto px-10 md:px-0 lg:px-17 md:px-6 py-10 relative z-100">
           {/* Point 1 - WELCOME */}
           <div className="relative h-[20vh] md:h-[30vh] min-h-[180px] md:min-h-[250px] flex items-start pt-15 md:pt-38 mb-8 md:mb-0">
             <div className="w-full text-left">
@@ -98,8 +116,7 @@ const LandingPage = () => {
             }}
           />
         </div>
-
-   
+        <div className=" mt-18 w-[80%] h-px bg-black mx-auto"></div>
       </main>
 
       {/* Footer */}
